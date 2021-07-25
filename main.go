@@ -8,9 +8,7 @@ func NewNetwork(weights [][][]ann.StandardUnit) (*ann.Network, error) {
 	network := ann.Network{
 		Output: make(chan []ann.StandardUnit),
 		Layers: ann.Layers{
-			Input:  nil,
 			Hidden: make([]*ann.Layer, 0),
-			Output: nil,
 		},
 	}
 

@@ -45,17 +45,21 @@ func (n *Network) GetHidden() []*Layer {
 }
 
 func (n *Network) GetLastHidden() *Layer {
-	return n.Layers.Hidden[len(n.Layers.Hidden)-1]
+	hidden := len(n.Layers.Hidden)
+	if hidden == 0 {
+		return nil
+	}
+	return n.Layers.Hidden[hidden-1]
 }
 
 func (n *Network) CountTotalLayers() int {
 	var count = 0
 
-	if n.GetInput() != nil {
+	if n.Layers.Input != nil {
 		count++
 	}
 
-	if n.GetOutput() != nil {
+	if n.Layers.Output != nil {
 		count++
 	}
 
